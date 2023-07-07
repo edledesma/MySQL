@@ -1,2 +1,2 @@
 # MySQL
-MySQL Exercise + solutions
+MySQL Exercises + solutions
