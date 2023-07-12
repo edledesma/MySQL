@@ -28,5 +28,7 @@ SELECT *FROM producto WHERE codigo_fabricante = (SELECT codigo FROM fabricante W
 SELECT nombre FROM fabricante WHERE codigo IN (SELECT DISTINCT codigo_fabricante FROM producto);
 SELECT nombre FROM fabricante WHERE codigo NOT IN (SELECT DISTINCT codigo_fabricante FROM producto);
 -- Devuelve un listado con todos los nombres de los fabricantes que tienen el mismo número de productos que el fabricante Lenovo.
+SELECT fabricante.nombre FROM fabricante JOIN producto on fabricante.codigo = producto.codigo_fabricante GROUP BY fabricante.nombre having count(*) = (SELECT count(*) FROM producto WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre ="Lenovo"));
+
 SELECT * FROM producto;
 SELECT * FROM fabricante;
